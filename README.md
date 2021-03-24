@@ -20,5 +20,6 @@ Setup:
 4. Run Server
     ```cmd
     cd src
+    python manage.py collectstatic
     python manage.py runserver
     ```
