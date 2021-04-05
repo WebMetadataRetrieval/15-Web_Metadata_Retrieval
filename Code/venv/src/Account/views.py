@@ -74,3 +74,6 @@ def logout_view(request):
     
     logout(request)
     return redirect('home')
+
+#1@XxYyZz
+#1@AaBbCc
