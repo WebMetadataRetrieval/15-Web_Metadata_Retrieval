@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # user-defined
     'Content',
     'Account',
+    'Metadata',
 ]
 
 MIDDLEWARE = [
