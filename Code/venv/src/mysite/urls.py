@@ -66,4 +66,16 @@ urlpatterns = [
              template_name='password-reset/password_reset_complete.html'
          ),
          name='password_reset_complete'),
+
+    # Password-change
+    path('password_change/done/',
+         auth_views.PasswordChangeDoneView.as_view(
+             template_name='password-change/password_change_done.html'
+         ),
+        name='password_change_done'),
+    path('password_change/',
+         auth_views.PasswordChangeView.as_view(
+             template_name='password-change/password_change.html'
+         ),
+        name='password_change'),
 ]
