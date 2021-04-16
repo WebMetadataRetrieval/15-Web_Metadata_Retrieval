@@ -10,16 +10,16 @@ uClient.close()
 page_soup=soup(data_info,"html.parser") #parsing of information
 
 containers = page_soup.findAll("div",{"class":"aMaAEs"})
-bb=containers[0].findAll("span",{"class":"B_NuCI"})
-print("\n"+"*Product Title: "+bb[0].text+"\n")
+Title=containers[0].findAll("span",{"class":"B_NuCI"})
+print("\n"+"*Product Title: "+Title[0].text+"\n")
 
 
 contain= page_soup.findAll("div",{"class":"_2418kt"})
-aa=contain[0].findAll("li",{"class":"_21Ahn-"})
+Des=contain[0].findAll("li",{"class":"_21Ahn-"})
 
 print("*Product Description of the product is below: ")
 for i in range(0,4):
-  print(aa[i].text)
+  print(Des[i].text)
 
 co= page_soup.findAll("div",{"class":"CXW8mj _3nMexc"}) 
 print("\n"+"*Image description: "+ co[0].img["src"])
