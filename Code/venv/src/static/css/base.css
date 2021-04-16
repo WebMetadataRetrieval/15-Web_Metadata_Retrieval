@@ -1,0 +1,26 @@
+body {
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+.main{
+    min-height: 85vh;
+}
+
+body::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #fff;
+}
+body::-webkit-scrollbar
+{
+	width: 6px;
+	background-color:#fff;
+}
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #7121f4;
+}
