@@ -23,7 +23,7 @@ def metadata_api(request):
 
         try:
             client = UserAccount.objects.get(api_key=api_key)
-        except UserAccount.DoesNotExist:
+        except:
             res = {}
             res['reason'] = "Invalid API Key"
             return Response(res, status=status.HTTP_401_UNAUTHORIZED)

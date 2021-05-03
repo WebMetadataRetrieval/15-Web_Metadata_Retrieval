@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_crontab',
+    'rest_framework',
 
     # user-defined
     'Content',
@@ -108,8 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'Your gmail'
-EMAIL_HOST_PASSWORD = 'Your Email Password'
+EMAIL_HOST_USER = 'pareshchauhan501@gmail.com'
+EMAIL_HOST_PASSWORD = 'tpjsaukgzyshexjo'
 EMAIL_PORT = 587
 
 # Internationalization
@@ -131,13 +132,12 @@ AUTH_USER_MODEL = 'Account.UserAccount'
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'media'),
 ]
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 CRONJOBS = [
-    ('@daily', 'Account.Cron.cron.reset_daily_limit'),
+    ('* * * * *', 'Account.Cron.cron.reset_daily_limit'),
+    ('* * * * *', 'Account.Cron.cron.manage_cache'),
+    ('*/30 * * * *', 'Account.Cron.cron.cache_health'),
 ]

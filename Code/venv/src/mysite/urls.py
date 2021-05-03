@@ -42,6 +42,9 @@ urlpatterns = [
     path('account/', account_view, name="account"),
     path('logout/', logout_view, name="logout"),
 
+    # API End Point
+    path('api/', include('Metadata.api.urls')),
+    
     # Password-rest
      path('password-reset/',
          auth_views.PasswordResetView.as_view(
