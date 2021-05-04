@@ -25,7 +25,7 @@ SECRET_KEY = '7fc5f3g1-$*k)!6ci*9%h42y41$)1bk^xk)lvc^8=3_^9n*uvw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -137,7 +137,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 
 CRONJOBS = [
-    ('* * * * *', 'Account.Cron.cron.reset_daily_limit'),
-    ('* * * * *', 'Account.Cron.cron.manage_cache'),
+    ('0 0 * * *', 'Account.Cron.cron.reset_daily_limit'),
+    ('0 0 * * *', 'Account.Cron.cron.manage_cache'),
     ('*/30 * * * *', 'Account.Cron.cron.cache_health'),
 ]

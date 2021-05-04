@@ -5,16 +5,13 @@ from Metadata.models import Metadata
 
 def retrive_metadata(url):
 
+    res = Metadata(web_page=url)
     try:
         page = metadata_parser.MetadataParser(url)
+        data = page.metadata
+        # print(data)
     except:
-        res = Metadata(web_page=url)
         return res
-        
-    data = page.metadata
-    # print(data)
-
-    res = Metadata(web_page=url)
 
     if 'og' in data and ('title' in data["og"] or 'Title' in data["og"]):
         if 'title' in data["og"]:
