@@ -9,11 +9,11 @@
       <h1 class="small text-dark" data-aos="zoom-in" data-aos-delay="0">Web Metadata Retrieval</h1>
       <p class="" data-aos="zoom-in" data-aos-delay="0">An Open Source, Self Hosted API for Web Metadata Retrieval</p>
       {% if user.is_authenticated %}
-      <a href="{% url 'doc' %}" class="btn md action-3" data-aos="zoom-in" data-aos-delay="100">
+      <a href="{% url 'doc' %}" class="btn md action-3 go_doc" data-aos="zoom-in" data-aos-delay="100">
         Go To Documentation
       </a>
       {% else %}
-      <a href="{% url 'register' %}" class="btn md action-3" data-aos="zoom-in" data-aos-delay="100">
+      <a href="{% url 'register' %}" class="btn md action-3 get_key" data-aos="zoom-in" data-aos-delay="100">
         Get an API Key
       </a>
       {% endif %}
