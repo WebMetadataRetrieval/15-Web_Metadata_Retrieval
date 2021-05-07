@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container" style="color: black;">
+
+    <div class="mr-50">
+      <h1 class="small text-dark" data-aos="zoom-in" data-aos-delay="0">Documentation</h1>
+      <br>
+    </div>
+
+    <div>
+        <h4>Introduction</h4>
+        <br>
+        <div style="font-size: larger;">A self hosted API for web metadata retrieval, offers the web-scraping <br>
+            functionality when any valid URL is provided. The identified stakeholders are :
+        </div>
+        <br>        
+        <div style="font-size: larger;">
+        <ul>
+            <li>Developers (Who contributes to this open-source project)</li>
+            <li>Companies/Developers (Who integrates our service with their product(Web/Mobile App))</li>
+            <li>End-users of the system (Everyone who uses our service integrated products.)</li>
+        </ul>
+        </div>
+        <br>
+        <div style="font-size: larger;">This will be a very useful tool for those who are interested in extracting 
+            the data and use it for any analysis. 
+        </div>
+        <br>
+
+        <hr>
+
+        <br>
+        <h4>Description</h4>
+
+        <br>
+
+        <div style="font-size: larger;">
+        <ol>
+            <h5>
+            <li>
+                Registration : 
+            </li>
+            </h5>
+            <br>
+                <ul>
+                    <li>Enter Email address</li>
+                    <li>Password</li>
+                    <li>Confirm Password</li>
+                </ul>
+            <br>
+            (Password should be min 8 characters. Shouldn't match to email address, and cannot be too common. <br>
+            If so, then it will show an error message in red letters.)
+
+            <div class="col-lg align-self-center mt-3 mb-5">
+                <img src="{% static 'res/1.png' %}" alt="" data-aos="zoom-in" data-aos-delay="0" width="280">
+            </div>
+
+            Following screen will appear once registration is done successfully.
+
+            <div class="col-lg align-self-center mt-3 mb-5">
+                <img src="{% static 'res/2.png' %}" alt="" data-aos="zoom-in" data-aos-delay="0" width="400">
+            </div>
+
+                <h5>
+            <li>
+                Consume API : 
+                </h5> 
+                
+                <br>
+                Following are the ways to consume the self-hosted API:
+            </li>
+            <br>
+                <ul>
+                    <li>
+                        <b>API_Key</b> : captured from the registration screen
+                        <br>
+                        <div class="col-lg align-self-center mt-3 mb-5">
+                            <img src="{% static 'res/3.png' %}" alt="" data-aos="zoom-in" data-aos-delay="0" width="400">
+                        </div>
+
+                    </li>
+                    <li>Valid Web URL that is required to scraped</li>
+                    <li>Cached= true/false (optional): It is useful for optimising the access time.</li>
+                </ul>
+
+            <br><br>
+
+
+                <h5>
+            <li>
+                Accessing with URL : 
+                </h5> 
+            
+                <br>
+
+                Url to access API Endpoint : 
+                <a href="https://web-metadata.herokuapp.com/api/">https://web-metadata.herokuapp.com/api/</a>
+
+                <br><br>
+
+                Input Parameters for GET Request : <br><br>
+                <ul>
+                    <li>api_key ( Enter your valid API key)</li>
+                    <li>web_page ( Enter a valid website)</li>
+                    <li>cached ( Enter true/false) (default=true) (optional)</li>
+                </ul>
+
+                <br><br>
+
+                Metadata API Url : <br>
+                <a href="https://web-metadata.herokuapp.com/api/?api_key=34fb8a53-9633-4f84-aa4d-f010c62b853b&format=api&
+                    web_page=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DXQgXKtPSzUI">https://web-metadata.herokuapp.com/api/?
+                    api_key=34fb8a53-9633-4f84-aa4d-f010c62b853b&format=api&web_page=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv
+                    %3DXQgXKtPSzUI
+                </a>
+                
+                <br><br>
+
+                Success Response : <br><br>
+
+                <div style="background-color: rgb(235, 232, 232);">
+
+                &emsp;{ <br>
+                &emsp;&emsp;"web_page" : "https://www.youtube.com/watch?v=XQgXKtPSzUI", <br><br>
+                
+                &emsp;&emsp;"title" : "Intro to Web Scraping with Python and Beautiful Soup",<br><br>
+                
+                &emsp;&emsp;"description" : "Web scraping is a very powerful tool to learn for any data professional. With web <br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; scraping the entire internet becomes your database. In this tutorial we sho...", <br><br>
+                    
+                &emsp;&emsp;"thumbnail" : "https://i.ytimg.com/vi/XQgXKtPSzUI/maxresdefault.jpg" <br>                
+                &emsp;}
+
+                </div>
+
+                <br><br><br>
+
+                <div style="font-size: 20px;">
+                <b><u>Following is the sample output→ when we have only entered the registered API key and valid URL :</u></b>
+                </div>
+
+                <br><br>
+
+                <div class="col-lg align-self-center mt-3 mb-5">
+                    <img src="{% static 'res/4.png' %}" alt="" data-aos="zoom-in" data-aos-delay="0" width="1000">
+                </div>
+
+                <br><br>
+
+                <div style="font-size: 20px;">
+                <b><u>
+                    Following is the expected output when we add a parameter: <span style="background-color: rgb(241, 238, 25);"> cached = true </span>. (when you cached=true, it can 
+                    bring data from the cache)
+                </u></b>
+                </div>
+
+
+                <br><br>
+
+                <div class="col-lg align-self-center mt-3 mb-5">
+                    <img src="{% static 'res/5.png' %}" alt="" data-aos="zoom-in" data-aos-delay="0" width="900">
+                </div>
+
+                <br><br>
+
+                <div style="font-size: 20px;">
+                <b><u>
+                    Following is the expected output when we add a parameter: <span style="background-color: rgb(241, 238, 25);"> cached = false </span>. (when cached=false, it will scrape 
+                    the page irrespective of already existing in the cache)
+                </u></b>
+                </div>
+                
+
+                <br><br>
+
+                <div class="col-lg align-self-center mt-3 mb-5">
+                    <img src="{% static 'res/6.png' %}" alt="" data-aos="zoom-in" data-aos-delay="0" width="900">
+                </div>
+
+                <br><br>
+
+                <div style="font-size: 22px;">
+                <b><u>
+                    Output for another valid URL :
+                </u></b>
+                </div>
+                
+
+                <br><br>
+
+                <div class="col-lg align-self-center mt-3 mb-5">
+                    <img src="{% static 'res/7.png' %}" alt="" data-aos="zoom-in" data-aos-delay="0" width="900">
+                </div>
+
+                <br><br>
+
+                <div style="font-size: 22px;">
+                <b><u>
+                    Output for an Invalid URL :
+                </u></b>
+                </div>
+
+                <br><br>
+
+                <div class="col-lg align-self-center mt-3 mb-5">
+                    <img src="{% static 'res/8.png' %}" alt="" style="border: 3px solid #555;" data-aos="zoom-in" data-aos-delay="0" width="800">
+                </div>
+
+                <br><br>
+
+                <b><u>Daily limit</u></b> : Every user is provided 1000 as a daily limit of accessing the API.
+
+                <br><br>
+
+                See below, after calling the API Key 4 times, on checking the daily limit: we can see it has been reduced to 996 out of 1000.
+
+                <br><br>
+
+                <div class="col-lg align-self-center mt-3 mb-5">
+                    <img src="{% static 'res/9.png' %}" alt="" data-aos="zoom-in" data-aos-delay="0" width="500">
+                </div>
+
+            </li>
+        </ol>
+        </div>
+
+    </div>
+
+    <!-- <div class="col-lg align-self-center">
+      <img src="{% static 'res/artwork.svg' %}" alt="" data-aos="zoom-in" data-aos-delay="0">
+    </div> -->
+</div>
+
+{% endblock content %}
