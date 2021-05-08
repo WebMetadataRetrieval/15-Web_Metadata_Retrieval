@@ -53,5 +53,5 @@ def retrive_metadata(url):
     elif 'page' in data and 'image' in data["page"]:
         res.thumbnail = data["page"]["image"]
 
-    print(res)
+    #print(res)
     return res

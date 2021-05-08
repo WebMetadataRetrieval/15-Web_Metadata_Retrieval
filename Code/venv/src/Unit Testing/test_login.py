@@ -65,15 +65,13 @@ class UserTestCase(TestCase):
     # Test for Invalid Request from User
 
     def test_invalid_request(self):
-        self.client.login(email=self.user_b.email,
-                          password='some_strong_123_pass')
+        self.client.login(email=self.user_b.email, password='some_strong_123_pass')
         response = self.client.post("/admin/")
         self.assertNotEqual(response.status_code, 200)  # 302
 
     # Test for Valid Request from User
 
     def test_valid_request(self):
-        self.client.login(email=self.user_a.email,
-                          password='some_strong_123_pass')
+        self.client.login(email=self.user_a.email, password='some_strong_123_pass')
         response = self.client.post("/admin/")
         self.assertEqual(response.status_code, 200)  # 200
