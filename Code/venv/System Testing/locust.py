@@ -1,6 +1,6 @@
 from locust import HttpUser, task, TaskSet, between
 class StressTesting(HttpUser):
-    wait_time = between(5, 30)
+    wait_time = between(0, 30)
 
     @task(1)
     def index_page(self):
