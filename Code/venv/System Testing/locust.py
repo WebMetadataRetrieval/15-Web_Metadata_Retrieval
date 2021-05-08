@@ -25,8 +25,6 @@ class StressTesting(HttpUser):
 
     @task(5)
     def api_page(self):
-        # api_call = [{api_key: "2bed2a0c-3d1f-4775-a45a-7ffdddb17622", web_page: "https://www.youtube.com/watch?v=hnrQ_bTsNMQ", cached: False, },
-        # {api_key: "1b847fdc-876c-43f4-a133-16a11836782a", web_page: "https://docs.locust.io/en/stable/writing-a-locustfile.html", cached: False}]
        
         api_key= "2bed2a0c-3d1f-4775-a45a-7ffdddb17622" 
         web_page= "https://www.youtube.com/watch?v=hnrQ_bTsNMQ"

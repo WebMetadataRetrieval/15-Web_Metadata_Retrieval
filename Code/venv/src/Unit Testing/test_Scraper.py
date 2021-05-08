@@ -14,8 +14,8 @@ class Test(TestCase):
       scraper_c = scrapper.retrive_metadata("https://github.com/WebMetadataRetrieval")
       self.scraper_c = scraper_c
 
-      scraper_d = scrapper.retrive_metadata("https://www.youtube.com/results?search_query=unit+test+scraper")
-      self.scraper_d = scraper_d
+      # scraper_d = scrapper.retrive_metadata("https://www.myntra.com/flip-flops/us-polo-assn/us-polo-assn-men-off-white--navy-blue-azzaro-solid-thong-flip-flops/8650293/buy")
+      # self.scraper_d = scraper_d
 
     #Test for Title
     def test_title(self):
@@ -26,7 +26,7 @@ class Test(TestCase):
     #Test for Description
     def test_description(self):
         self.assertEqual("SE Group-15. Web Metadata Retrieval API has one repository available. Follow their code on GitHub.", self.scraper_c.description)
-        self.assertEqual("", self.scraper_d.description)
+        #self.assertEqual("Buy U.S. Polo Assn. Men Off White & Navy Blue AZZARO Solid Thong Flip Flops - Flip Flops for Men from U.S. Polo Assn. at Rs. 649. Style ID: 8650293", self.scraper_d.description)
       
 
     #Test for Thumbnail
