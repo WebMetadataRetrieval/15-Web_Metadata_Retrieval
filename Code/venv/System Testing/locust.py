@@ -1,43 +1,40 @@
 from locust import HttpUser, task, TaskSet, between
-import time
-from json import JSONDecodeError
-
-
 class StressTesting(HttpUser):
-    wait_time = between(1, 5)
+    wait_time = between(5, 30)
 
-    @task
+    @task(1)
     def index_page(self):
         self.client.get(url="")
 
-    @task
+    @task(2)
     def register_page(self):
         response = self.client.get(url="register")
         csrftoken = response.cookies['csrftoken']
         response = self.client.post("register/", {"email": "test", "password": "secret"}, headers={"X-CSRFToken": csrftoken})
 
-    @task
+    @task(3)
     def login_page(self):
         response = self.client.get(url="login")
         csrftoken = response.cookies['csrftoken']
         response = self.client.post("login/", {"email": "test", "password": "secret"}, headers={"X-CSRFToken": csrftoken})
 
 
-    @task
+    @task(4)
     def account_page(self):
         self.client.get(url="account")
 
-    # @task
-    # def api_page(self):
-    #     with self.client.post("api", json={"web_page": "https://test.com", "title": "random title", "description": "some long discription", "thumbnail": "https://thumbnail.png"}, catch_response=True) as response:
-    #         try:
-    #             if response.json()["title"] != "random title":
-    #                 response.failure("Did not get expected value in greeting")
-    #         except JSONDecodeError:
-    #             response.failure("Response could not be decoded as JSON")
-    #         except KeyError:
-    #             response.failure("Response did not contain expected key 'greeting'")
+    @task(5)
+    def api_page(self):
+        # api_call = [{api_key: "2bed2a0c-3d1f-4775-a45a-7ffdddb17622", web_page: "https://www.youtube.com/watch?v=hnrQ_bTsNMQ", cached: False, },
+        # {api_key: "1b847fdc-876c-43f4-a133-16a11836782a", web_page: "https://docs.locust.io/en/stable/writing-a-locustfile.html", cached: False}]
+       
+        api_key= "2bed2a0c-3d1f-4775-a45a-7ffdddb17622" 
+        web_page= "https://www.youtube.com/watch?v=hnrQ_bTsNMQ"
+        cached= "True"
+        daily_limit= 100000
 
-    @task
+        self.client.get("api/?api_key="+api_key+"&web_page="+web_page+"&cached="+cached, name = "api")
+    
+    @task(6)
     def logout_page(self):
         self.client.get(url='logout')
